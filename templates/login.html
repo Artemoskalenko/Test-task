@@ -1,0 +1,69 @@
+{% load socialaccount %}
+{% providers_media_js %}
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link href='{% static "css/bootstrap.min.css" %}' rel='stylesheet'>
+</head>
+<body>
+
+<div class='py-4 mt-auto'>
+    <div class='container px-4'>
+        <div class='d-flex justify-content-center'>
+            <h3>Authorization</h3>
+        </div>
+
+        <div class='row'>
+            <div class='col-lg-6 offset-lg-3'>
+                <div class='card bg-secondary mb-3'>
+                    <div class='card-body'>
+
+                        <div class='form-group'>
+
+                            <form action="/admin/login/?next=/admin/" method='post'>
+                                {% csrf_token %}
+                                <div class='form-group'>
+                                    <label for='inputUsername' class='form-label mt-4'>
+                                        Username
+                                    </label>
+                                    <input type='text' name='username' class='form-control' id='inputUsername' placeholder='Enter your username' autofocus>
+                                </div>
+
+                                <div class='form-group'>
+                                    <label for='inputPassword1' class='form-label mt-4'>
+                                        Password
+                                    </label>
+                                    <input type='password' name='password' class='form-control' id='inputPassword1' placeholder='Enter your password'>
+                                </div>
+
+                                <div class='form-group mt-4'>
+                                    <button type='submit' class='btn btn-primary'>
+                                        Login
+                                    </button>
+                                </div>
+                            </form>
+
+                            <div class='mt-2'>
+                                <a href="{% provider_login_url 'facebook' %}">Login via Facebook</a><br>
+                                <a href="{% provider_login_url 'google' method='js_sdk' %}">Login via Google</a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<script src='https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js'></script>
+
+</body>
+</html>
