@@ -34,7 +34,7 @@
   - **HTTP Method:** POST
   - **URL:** `/api/v1/team/`
   - **Description:** Allows you to create a new team. Team data is passed in the request body in JSON format.
-  - **Example JSON:** `{"id": 1, "name": "Team1"}`
+  - **Example JSON:** `{"name": "Team1"}`
 
 - Get a list of all teams:
   - **HTTP Method:** GET
